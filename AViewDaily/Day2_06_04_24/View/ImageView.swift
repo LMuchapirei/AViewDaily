@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct ImageView: View {
+    var post: Item
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader {
+            let size = $0.size
+            
+            if let image = post.image {
+                Image(uiImage: post.image!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: size.width,height: size.height)
+                    .clipped()
+            }
+        }
     }
 }
 
-#Preview {
-    ImageView()
-}
+
