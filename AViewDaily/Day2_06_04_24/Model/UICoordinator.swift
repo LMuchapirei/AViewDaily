@@ -17,6 +17,7 @@ class UICoordinator {
      */
     var scrollView: UIScrollView = .init(frame: .zero)
     var rect: CGRect = .zero
+    var selectedItem: Item?
     var animationLayer: UIImage?
     var animateView: Bool = false
     var hideLayer: Bool = false
