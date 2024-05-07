@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        /// Preview for day 2 build
+        NavigationStack {
+             Home()
+                .toolbar(.hidden,for:.navigationBar)
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
 }
+
+//// Note : When using navigation stack we must hide the default navigation bar

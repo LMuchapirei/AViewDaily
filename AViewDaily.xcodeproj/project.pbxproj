@@ -13,6 +13,8 @@
 		876559D32BE4F328006A8E20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876559D22BE4F328006A8E20 /* Preview Assets.xcassets */; };
 		876559DB2BE4F357006A8E20 /* GroupBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559DA2BE4F357006A8E20 /* GroupBoxDemo.swift */; };
 		876559E62BEA12BF006A8E20 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559E52BEA12BF006A8E20 /* Item.swift */; };
+		876559E92BEA168F006A8E20 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559E82BEA168F006A8E20 /* Home.swift */; };
+		876559EB2BEA1AC5006A8E20 /* UICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559EA2BEA1AC5006A8E20 /* UICoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		876559D22BE4F328006A8E20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		876559DA2BE4F357006A8E20 /* GroupBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBoxDemo.swift; sourceTree = "<group>"; };
 		876559E52BEA12BF006A8E20 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		876559E82BEA168F006A8E20 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		876559EA2BEA1AC5006A8E20 /* UICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		876559DE2BE8BC6E006A8E20 /* Day2_06_04_24 */ = {
 			isa = PBXGroup;
 			children = (
+				876559E72BEA167A006A8E20 /* View */,
 				876559E42BEA1293006A8E20 /* Model */,
 			);
 			path = Day2_06_04_24;
@@ -93,8 +98,17 @@
 			isa = PBXGroup;
 			children = (
 				876559E52BEA12BF006A8E20 /* Item.swift */,
+				876559EA2BEA1AC5006A8E20 /* UICoordinator.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		876559E72BEA167A006A8E20 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				876559E82BEA168F006A8E20 /* Home.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +183,9 @@
 			files = (
 				876559E62BEA12BF006A8E20 /* Item.swift in Sources */,
 				876559DB2BE4F357006A8E20 /* GroupBoxDemo.swift in Sources */,
+				876559E92BEA168F006A8E20 /* Home.swift in Sources */,
 				876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */,
+				876559EB2BEA1AC5006A8E20 /* UICoordinator.swift in Sources */,
 				876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
