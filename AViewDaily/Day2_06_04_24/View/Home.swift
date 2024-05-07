@@ -31,6 +31,15 @@ struct Home: View {
                 coordinator.scrollView = $0
             })
         }
+           .overlay {
+            Detail()
+                .environment(coordinator)
+//            if let animationLayer = coordinator.animationLayer {
+//                Image(uiImage: animationLayer)
+//                    .ignoresSafeArea()
+//                    .opacity(0.5)
+//            }
+        }
     }
     
     //// Post Card View
