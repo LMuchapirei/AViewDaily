@@ -22,6 +22,16 @@ class UICoordinator {
     var hideLayer: Bool = false
     /// Root View Properties
     var hideRootView: Bool = false
+    
+    func createVisibleAreaSnapshot(){
+        let renderer = UIGraphicsImageRenderer(size: scrollView.bounds.size)
+        /// Capture a screenshot of the scrollview's visible region, not the complete scroll content
+        let image = renderer.image { ctx in
+            ctx.cgContext.translateBy(x: -scrollView.contentOffset.x, y: scrollView.contentOffset.y)
+            scrollView.layer.render(in: ctx.cgContext)
+        }
+        animationLayer = image
+    }
 }
 
 

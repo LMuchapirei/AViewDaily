@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Home: View {
+    var coordinator: UICoordinator = .init()
     @State private var posts: [Item] = sampleImages
     var body: some View {
         ScrollView(.vertical){
@@ -27,7 +28,7 @@ struct Home: View {
             }
             .padding(15)
             .background(ScrollViewExtractor{
-                print($0)
+                coordinator.scrollView = $0
             })
         }
     }
@@ -44,6 +45,13 @@ struct Home: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: frame.width,height: frame.height)
                     .clipShape(.rect(cornerRadius: 10))
+                    .contentShape(.rect(cornerRadius: 10))
+                    .onTapGesture {
+                        /// Storing View's Rect
+                        coordinator.rect = frame
+                        /// Generating ScrollView's visible area Snapshot
+                        coordinator.createVisibleAreaSnapshot()
+                    }
             }
         }
         .frame(height: 180)
