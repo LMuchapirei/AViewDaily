@@ -43,6 +43,17 @@ struct Detail: View {
                                 .frame(height: detailHeight)
                         }
                 }
+                .contentMargins(.top,detailHeight,for:.scrollIndicators)
+                .background {
+                    Rectangle()
+                        .fill(.background)
+                        .padding(.top,detailHeight)
+                }
+                .animation(.easeInOut(duration: 0.3).speed(1.5)){
+                    $0
+                        .offset(y:animateView ? 0: scrollContentHeight)
+                        .opacity(animateView ? 1 : 0)
+                }
                 
                 /// Hero Kinda View
                 ImageView(post: post)
