@@ -21,7 +21,8 @@ struct Detail: View {
             /// 15 - Horizontal Padding
             let offsetX = animateView ? (anchorX < 0.5 ? 15 : -15) * scale : 0
             let offsetY = animateView ? -rect.minY * scale : 0
-            
+            let detailHeight: CGFloat = rect.height * scale
+            let scrollContentHeight: CGFloat = size.height - detailHeight
             if let image = coordinator.animationLayer,let post = coordinator.selectedItem {
                 Image(uiImage: image)
                     .scaleEffect(animateView ? scale : 1,anchor: .init(x:anchorX, y: 0))
@@ -37,7 +38,9 @@ struct Detail: View {
                     /// YOUR SCROLL CONTENT
                     RandomContent()
                         .safeAreaInset(edge: .top,spacing: 0) {
-                            Rectangle().fill(.clear)
+                            Rectangle()
+                                .fill(.clear)
+                                .frame(height: detailHeight)
                         }
                 }
                 
