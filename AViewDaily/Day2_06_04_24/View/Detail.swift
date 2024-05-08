@@ -41,6 +41,11 @@ struct Detail: View {
                             Rectangle()
                                 .fill(.clear)
                                 .frame(height: detailHeight)
+                                .offsetY { offset in
+                                    coordinator.headerOffset =
+                                    max(min(-offset,detailHeight),0)
+                                    //// limit the headerview not to go all the way to the top, to leave space for the scroll content
+                                }
                         }
                 }
                 .contentMargins(.top,detailHeight,for:.scrollIndicators)
@@ -62,6 +67,7 @@ struct Detail: View {
                     )
                     .clipShape(.rect(cornerRadius: animateView ? 0: 10))
                     .offset(x:animateView ? 0 : rect.minX,y:animateView ? 0: rect.minY)
+                    .offset(y: -coordinator.headerOffset)
                 
             }
         }

@@ -23,6 +23,9 @@ class UICoordinator {
     var hideLayer: Bool = false
     /// Root View Properties
     var hideRootView: Bool = false
+    /// Detail View Props
+    var headerOffset: CGFloat = .zero
+    
     
     func createVisibleAreaSnapshot(){
         let renderer = UIGraphicsImageRenderer(size: scrollView.bounds.size)
