@@ -48,19 +48,7 @@ struct Home: View {
                 .clipShape(.rect(cornerRadius: 10))
                 .contentShape(.rect(cornerRadius: 10))
                 .onTapGesture {
-                    coordinator.selectedItem = post
-                    /// Storing View's Rect
-                    coordinator.rect = frame
-                    /// Generating ScrollView's visible area Snapshot
-                    coordinator.createVisibleAreaSnapshot()
-                    coordinator.hideRootView = true
-                    /// Animating View
-                    withAnimation(.easeInOut(duration: 0.3),completionCriteria:.removed){
-                        coordinator.animateView = true
-                    } completion: {
-                        coordinator.hideLayer = true
-                        /// Once the detail view expands, l will hide the animation layer and enable detail view interaction, this will be reversed when the closing animation begins
-                    }
+                    coordinator.toggleView(show: true, frame: frame, post: post)
                 }
         }
         .frame(height: 180)

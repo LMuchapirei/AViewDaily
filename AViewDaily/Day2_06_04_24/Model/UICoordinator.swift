@@ -36,6 +36,26 @@ class UICoordinator {
         }
         animationLayer = image
     }
+    
+    func toggleView(show: Bool,frame: CGRect,post: Item){
+        if show {
+            selectedItem = post
+            /// Storing View's Rect
+            rect = frame
+            /// Generating ScrollView's visible area Snapshot
+            createVisibleAreaSnapshot()
+            hideRootView = true
+            /// Animating View
+            withAnimation(.easeInOut(duration: 0.3),completionCriteria:.removed){
+                animateView = true
+            } completion: {
+                self.hideLayer = true
+                /// Once the detail view expands, l will hide the animation layer and enable detail view interaction, this will be reversed when the closing animation begins
+            }
+        } else {
+            
+        }
+    }
 }
 
 
