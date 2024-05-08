@@ -58,7 +58,8 @@ struct Home: View {
                     withAnimation(.easeInOut(duration: 0.3),completionCriteria:.removed){
                         coordinator.animateView = true
                     } completion: {
-                        
+                        coordinator.hideLayer = true
+                        /// Once the detail view expands, l will hide the animation layer and enable detail view interaction, this will be reversed when the closing animation begins
                     }
                 }
         }
