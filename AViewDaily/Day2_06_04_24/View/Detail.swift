@@ -36,7 +36,7 @@ struct Detail: View {
                 
                 ScrollView (.vertical){
                     /// YOUR SCROLL CONTENT
-                    RandomContent()
+                    ScrollContent()
                         .safeAreaInset(edge: .top,spacing: 0) {
                             Rectangle()
                                 .fill(.clear)
@@ -66,12 +66,41 @@ struct Detail: View {
                     .frame(width: animateView ? size.width : rect.width,height: animateView ? rect.height * scale : rect.height
                     )
                     .clipShape(.rect(cornerRadius: animateView ? 0: 10))
+                    .overlay(alignment:.top,content: {
+                        headerActions()
+                            .padding(.top,safeArea.top)
+                    })
                     .offset(x:animateView ? 0 : rect.minX,y:animateView ? 0: rect.minY)
                     .offset(y: -coordinator.headerOffset)
                 
             }
         }
         .ignoresSafeArea()
+    }
+    
+    /// Header Actions
+    @ViewBuilder
+    func headerActions()-> some View {
+        HStack {
+            Spacer(minLength: 0)
+            
+            Button(action:{}) {
+                Image(systemName: "xmark.circle.fill")
+                    .font(.title)
+                    .foregroundStyle(Color.primary,.bar)
+                    .padding(10)
+                    .contentShape(.rect)
+            }
+        }
+        .animation(.easeInOut(duration: 0.3)){
+            $0.opacity(coordinator.hideLayer ? 1 : 0)
+        }
+    }
+    
+    /// Scroll Content
+    @ViewBuilder
+    func ScrollContent()-> some View {
+        RandomContent()
     }
 }
 
