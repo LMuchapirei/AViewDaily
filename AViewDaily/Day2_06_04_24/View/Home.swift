@@ -32,9 +32,12 @@ struct Home: View {
             })
            }
         .opacity(coordinator.hideRootView ? 0 : 1)
-           .overlay {
+        .scrollDisabled(coordinator.hideRootView)
+        .allowsHitTesting(!coordinator.hideRootView)
+        .overlay {
             Detail()
                 .environment(coordinator)
+                .allowsTightening(coordinator.hideLayer)
 
         }
     }

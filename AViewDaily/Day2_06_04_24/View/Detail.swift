@@ -28,6 +28,7 @@ struct Detail: View {
                     Image(uiImage: image)
                         .scaleEffect(animateView ? scale : 1,anchor: .init(x:anchorX, y: 0))
                         .offset(x:offsetX,y: offsetY)
+                        .offset(y:animateView ? -coordinator.headerOffset : 0)
                         .opacity(animateView ? 0 : 1)
                         .transition(.identity)
                 }
@@ -65,12 +66,12 @@ struct Detail: View {
                     )
                     .clipShape(.rect(cornerRadius: animateView ? 0: 10))
                     .overlay(alignment:.top,content: {
-                        headerActions()
+                        headerActions(post)
                             .offset(y:coordinator.headerOffset)
                             .padding(.top,safeArea.top)
                     })
                     .offset(x:animateView ? 0 : rect.minX,y:animateView ? 0: rect.minY)
-                    .offset(y: -coordinator.headerOffset)
+                    .offset(y: animateView ?  -coordinator.headerOffset : 0)
                 
             }
         }
@@ -79,11 +80,13 @@ struct Detail: View {
     
     /// Header Actions
     @ViewBuilder
-    func headerActions()-> some View {
+    func headerActions(_ post: Item)-> some View {
         HStack {
             Spacer(minLength: 0)
             
-            Button(action:{}) {
+            Button(action:{
+                coordinator.toggleView(show: false, frame: .zero, post: post)
+            }) {
                 Image(systemName: "xmark.circle.fill")
                     .font(.title)
                     .foregroundStyle(Color.primary,.bar)

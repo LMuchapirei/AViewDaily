@@ -55,10 +55,12 @@ class UICoordinator {
         } else {
             /// Closing View
             hideLayer = false
-            withAnimation(.easeInOut(duration: 0.3),completionCriteria:.logicallyComplete){
+            withAnimation(.easeInOut(duration: 0.3),completionCriteria:.removed){
                 animateView = false
             } completion: {
-                self.resetAnimationProperties()
+                DispatchQueue.main.async {
+                    self.resetAnimationProperties()
+                }
             }
         }
     }
