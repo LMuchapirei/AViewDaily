@@ -53,8 +53,22 @@ class UICoordinator {
                 /// Once the detail view expands, l will hide the animation layer and enable detail view interaction, this will be reversed when the closing animation begins
             }
         } else {
-            
+            /// Closing View
+            hideLayer = false
+            withAnimation(.easeInOut(duration: 0.3),completionCriteria:.logicallyComplete){
+                animateView = false
+            } completion: {
+                self.resetAnimationProperties()
+            }
         }
+    }
+    
+    private func resetAnimationProperties(){
+        headerOffset = 0
+        hideRootView = false
+        rect = .zero
+        selectedItem = nil
+        animationLayer = nil
     }
 }
 
