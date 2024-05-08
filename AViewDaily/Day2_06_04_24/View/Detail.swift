@@ -24,16 +24,13 @@ struct Detail: View {
             let detailHeight: CGFloat = rect.height * scale
             let scrollContentHeight: CGFloat = size.height - detailHeight
             if let image = coordinator.animationLayer,let post = coordinator.selectedItem {
-                Image(uiImage: image)
-                    .scaleEffect(animateView ? scale : 1,anchor: .init(x:anchorX, y: 0))
-                    .offset(x:offsetX,y: offsetY)
-                    .opacity(animateView ? 0 : 1)
-                    .onTapGesture {
-                        coordinator.animationLayer = nil
-                        coordinator.hideRootView = false
-                        coordinator.animateView = false
-                    }
-                
+                if !hideLayer {
+                    Image(uiImage: image)
+                        .scaleEffect(animateView ? scale : 1,anchor: .init(x:anchorX, y: 0))
+                        .offset(x:offsetX,y: offsetY)
+                        .opacity(animateView ? 0 : 1)
+                        .transition(.identity)
+                }
                 ScrollView (.vertical){
                     /// YOUR SCROLL CONTENT
                     ScrollContent()
@@ -48,6 +45,7 @@ struct Detail: View {
                                 }
                         }
                 }
+                .scrollDisabled(!hideLayer)
                 .contentMargins(.top,detailHeight,for:.scrollIndicators)
                 .background {
                     Rectangle()
@@ -68,6 +66,7 @@ struct Detail: View {
                     .clipShape(.rect(cornerRadius: animateView ? 0: 10))
                     .overlay(alignment:.top,content: {
                         headerActions()
+                            .offset(y:coordinator.headerOffset)
                             .padding(.top,safeArea.top)
                     })
                     .offset(x:animateView ? 0 : rect.minX,y:animateView ? 0: rect.minY)
