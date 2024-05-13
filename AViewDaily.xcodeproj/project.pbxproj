@@ -10,6 +10,7 @@
 		873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615012BEBB42D006C7BD3 /* View+Extensions.swift */; };
 		873615092BF21E24006C7BD3 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615082BF21E24006C7BD3 /* LandingPage.swift */; };
 		8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */; };
+		8736150E2BF22232006C7BD3 /* View+ExtensionsD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150D2BF22232006C7BD3 /* View+ExtensionsD2.swift */; };
 		876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */; };
 		876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CD2BE4F326006A8E20 /* ContentView.swift */; };
 		876559D02BE4F328006A8E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876559CF2BE4F328006A8E20 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		873615012BEBB42D006C7BD3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		873615082BF21E24006C7BD3 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
 		8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		8736150D2BF22232006C7BD3 /* View+ExtensionsD2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ExtensionsD2.swift"; sourceTree = "<group>"; };
 		876559C82BE4F326006A8E20 /* AViewDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViewDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewDailyApp.swift; sourceTree = "<group>"; };
 		876559CD2BE4F326006A8E20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */,
+				8736150D2BF22232006C7BD3 /* View+ExtensionsD2.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 				876559E92BEA168F006A8E20 /* Home.swift in Sources */,
 				876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */,
 				873615092BF21E24006C7BD3 /* LandingPage.swift in Sources */,
+				8736150E2BF22232006C7BD3 /* View+ExtensionsD2.swift in Sources */,
 				876559EB2BEA1AC5006A8E20 /* UICoordinator.swift in Sources */,
 				873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */,
 				876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */,
