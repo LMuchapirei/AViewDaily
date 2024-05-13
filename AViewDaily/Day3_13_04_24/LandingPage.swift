@@ -40,6 +40,9 @@ struct LandingPage: View {
             .background(
                 .blue
             )
+            ScrollView(.vertical){
+                TransactionView()
+            }.scrollIndicators(.hidden)
         }
         .onChange(of: currentWeekIndex){
             newValue in
@@ -64,6 +67,30 @@ struct LandingPage: View {
     }
     
     @ViewBuilder
+    func TransactionView()-> some View {
+        VStack(alignment:.leading,spacing: 10){
+            ForEach(0 ..< 10){ _ in
+                VStack {
+                    HStack {
+                        VStack(alignment:.leading){
+                            Text("Test Account")
+                            Text("Card : 8:00 PM")
+                        }
+                        Spacer()
+                        Text("$125.00")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 80)
+                    
+                    Divider()
+                        .padding(.horizontal,12)
+                }
+                .padding(.horizontal,12)
+            }
+        }
+    }
+    
+    @ViewBuilder
     func DateSlider(_ week: [Date.WeekDay])-> some View {
         HStack(spacing:0){
             ForEach(week){ day in
@@ -76,7 +103,7 @@ struct LandingPage: View {
                         .frame(width:35,height: 35)
                     
                     
-                    Text(day.date.format("MMM"))
+                    Text(day.date.format("E"))
                         .font(.callout)
                         .fontWeight(.bold)
                         .textScale(.secondary)
@@ -85,7 +112,7 @@ struct LandingPage: View {
                     if isSameDate(day.date, currentDate){
                         Triangle()
                             .fill(.blue)
-                            .frame(height:10)
+                            .frame(width:20,height:10)
                     }
 
                         
