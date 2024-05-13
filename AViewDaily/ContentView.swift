@@ -10,10 +10,13 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         /// Preview for day 2 build
-        NavigationStack {
-             Home()
-                .toolbar(.hidden,for:.navigationBar)
-        }
+        //        NavigationStack {
+        //             Home()
+        //                .toolbar(.hidden,for:.navigationBar)
+        //        }
+        
+        /// Preview for  day 3 build
+        LandingPage()
     }
 }
 

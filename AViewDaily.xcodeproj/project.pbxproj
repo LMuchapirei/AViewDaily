@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615012BEBB42D006C7BD3 /* View+Extensions.swift */; };
+		873615092BF21E24006C7BD3 /* LandingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615082BF21E24006C7BD3 /* LandingPage.swift */; };
+		8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */; };
 		876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */; };
 		876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CD2BE4F326006A8E20 /* ContentView.swift */; };
 		876559D02BE4F328006A8E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876559CF2BE4F328006A8E20 /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		873615012BEBB42D006C7BD3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		873615082BF21E24006C7BD3 /* LandingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPage.swift; sourceTree = "<group>"; };
+		8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		876559C82BE4F326006A8E20 /* AViewDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViewDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewDailyApp.swift; sourceTree = "<group>"; };
 		876559CD2BE4F326006A8E20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +60,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		873615072BF21DB0006C7BD3 /* Day3_13_04_24 */ = {
+			isa = PBXGroup;
+			children = (
+				8736150A2BF21F31006C7BD3 /* Helpers */,
+				873615082BF21E24006C7BD3 /* LandingPage.swift */,
+			);
+			path = Day3_13_04_24;
+			sourceTree = "<group>";
+		};
+		8736150A2BF21F31006C7BD3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		876559BF2BE4F326006A8E20 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +96,7 @@
 		876559CA2BE4F326006A8E20 /* AViewDaily */ = {
 			isa = PBXGroup;
 			children = (
+				873615072BF21DB0006C7BD3 /* Day3_13_04_24 */,
 				876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */,
 				876559CD2BE4F326006A8E20 /* ContentView.swift */,
 				876559DE2BE8BC6E006A8E20 /* Day2_06_04_24 */,
@@ -206,8 +228,10 @@
 				876559ED2BEA245E006A8E20 /* Detail.swift in Sources */,
 				876559F12BEA2EC5006A8E20 /* RandomContent.swift in Sources */,
 				876559DB2BE4F357006A8E20 /* GroupBoxDemo.swift in Sources */,
+				8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */,
 				876559E92BEA168F006A8E20 /* Home.swift in Sources */,
 				876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */,
+				873615092BF21E24006C7BD3 /* LandingPage.swift in Sources */,
 				876559EB2BEA1AC5006A8E20 /* UICoordinator.swift in Sources */,
 				873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */,
 				876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */,
