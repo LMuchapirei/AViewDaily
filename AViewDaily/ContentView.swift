@@ -20,12 +20,12 @@ struct ContentView: View {
         /// Preview for  day 3 build
         //        LandingPage()
         TabView(selection:$activeTab) {
-            LandingPage()
+            HomePageD3()
                 .tag(Tab.home)
                 .tabItem {
                     Tab.home.tabContent
                 }
-            Text(Tab.transactions.rawValue)
+            LandingPage()
                 .tag(Tab.transactions)
                 .tabItem {
                     Tab.transactions.tabContent
