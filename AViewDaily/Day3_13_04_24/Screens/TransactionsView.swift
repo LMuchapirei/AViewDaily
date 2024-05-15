@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LandingPage: View {
+struct TransactionsView: View {
     @State private var currentDate: Date = .init()
     @Namespace private var animation
     @State private var weekSlider: [[Date.WeekDay]] = []
@@ -70,32 +70,7 @@ struct LandingPage: View {
     func TransactionView()-> some View {
         VStack(alignment:.leading,spacing: 10){
             ForEach(sampleTransactions){ transaction in
-                VStack {
-                    HStack {
-                        transaction.transactionType.leadingIcon
-                            .padding(
-                                .horizontal,8
-                            )
-                        VStack(alignment:.leading){
-                            Text(transaction.transactionTitle)
-                                .font(.title3)
-                            Text("\(transaction.transactionType.rawValue) ")
-                                .font(.caption)
-                                .foregroundStyle(.gray)
-                        }
-                        Spacer()
-                        VStack(alignment:.trailing) {
-                            Text("\(Decimal(transaction.amount).formatted(.currency(code: "USD")))")
-                            Text("\(transaction.timeStamp.format("HH:mm a"))")
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 80)
-                    
-                    Divider()
-                        .padding(.horizontal,12)
-                }
-                .padding(.horizontal,12)
+                ExtractedView()
             }
         }
     }
@@ -197,3 +172,35 @@ struct Triangle: Shape {
 
 
 
+
+struct TransactionItem: View {
+    let transaction: TransactionModel
+    var body: some View {
+        VStack {
+            HStack {
+                transaction.transactionType.leadingIcon
+                    .padding(
+                        .horizontal,8
+                    )
+                VStack(alignment:.leading){
+                    Text(transaction.transactionTitle)
+                        .font(.title3)
+                    Text("\(transaction.transactionType.rawValue) ")
+                        .font(.caption)
+                        .foregroundStyle(.gray)
+                }
+                Spacer()
+                VStack(alignment:.trailing) {
+                    Text("\(Decimal(transaction.amount).formatted(.currency(code: "USD")))")
+                    Text("\(transaction.timeStamp.format("HH:mm a"))")
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            
+            Divider()
+                .padding(.horizontal,12)
+        }
+        .padding(.horizontal,12)
+    }
+}

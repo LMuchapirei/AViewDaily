@@ -25,7 +25,7 @@ struct ContentView: View {
                 .tabItem {
                     Tab.home.tabContent
                 }
-            LandingPage()
+            TransactionsView()
                 .tag(Tab.transactions)
                 .tabItem {
                     Tab.transactions.tabContent

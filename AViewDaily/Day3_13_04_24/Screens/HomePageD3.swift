@@ -34,9 +34,28 @@ struct HomePageD3: View {
             
             HStack{
                 Text("Add New Transaction")
-                
+                Spacer()
+                Image(systemName: "arrow.right")
             }
-
+            .foregroundColor(.white)
+            .padding()
+            .background(.blue,in:.rect(cornerRadius: 8))
+            .padding()
+            
+            Divider()
+            
+            HStack {
+                Text("Recent Transaction")
+                    .bold()
+                Spacer()
+                HStack {
+                    Text("View All")
+                        .bold()
+                    Image(systemName: "arrow.right")
+                        .bold()
+                }
+            }
+            .padding()
         }
     }
     
