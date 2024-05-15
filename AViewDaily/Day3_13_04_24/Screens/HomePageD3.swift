@@ -11,7 +11,7 @@ struct HomePageD3: View {
     let total : Double = sampleTransactions.reduce(0.0) { $0 + $1.amount }
     var body: some View {
         VStack {
-            HStack {
+            HStack (alignment:.top){
                 VStack(alignment:.leading){
                     HStack {
                         Text("Today's Total")
@@ -20,10 +20,11 @@ struct HomePageD3: View {
                     Text(Decimal(total).formatted(.currency(code: "USD")))
                         .font(.largeTitle)
                         .bold()
+                        .padding(.vertical,8)
                 }
                 Spacer()
                 Circle()
-                    .frame(width: 60,height: 60)
+                    .frame(width: 40,height: 40)
             }
             .padding(.horizontal,10)
             
@@ -34,8 +35,10 @@ struct HomePageD3: View {
             
             HStack{
                 Text("Add New Transaction")
+                    .bold()
                 Spacer()
                 Image(systemName: "arrow.right")
+                    .bold()
             }
             .foregroundColor(.white)
             .padding()
@@ -54,8 +57,14 @@ struct HomePageD3: View {
                     Image(systemName: "arrow.right")
                         .bold()
                 }
+                .foregroundStyle(.blue)
             }
             .padding()
+            ScrollView {
+                ForEach(0 ..< 3){ index in
+                    TransactionItem(transaction: sampleTransactions[index])
+                }
+            }
         }
     }
     

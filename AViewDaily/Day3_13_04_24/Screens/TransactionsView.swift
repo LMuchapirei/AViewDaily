@@ -70,7 +70,7 @@ struct TransactionsView: View {
     func TransactionView()-> some View {
         VStack(alignment:.leading,spacing: 10){
             ForEach(sampleTransactions){ transaction in
-                ExtractedView()
+                TransactionItem(transaction: transaction)
             }
         }
     }
@@ -192,7 +192,11 @@ struct TransactionItem: View {
                 Spacer()
                 VStack(alignment:.trailing) {
                     Text("\(Decimal(transaction.amount).formatted(.currency(code: "USD")))")
+                        .font(.headline)
+                        .foregroundStyle(.gray)
                     Text("\(transaction.timeStamp.format("HH:mm a"))")
+                        .font(.caption2)
+                        
                 }
             }
             .frame(maxWidth: .infinity)
