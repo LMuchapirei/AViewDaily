@@ -13,7 +13,7 @@ struct LandingPage: View {
     @State private var weekSlider: [[Date.WeekDay]] = []
     @State private var currentWeekIndex: Int = 1
     @State private var createWeek: Bool = false
-    
+    private let transactionTotal = sampleTransactions.reduce(0.0) { $0 + $1.amount }
     var body: some View {
         VStack{
             TabView(selection: $currentWeekIndex){
@@ -32,7 +32,7 @@ struct LandingPage: View {
                 Text("All Transactions")
                 Image(systemName: "arrow.up.arrow.down.square")
                 Spacer()
-                Text("$6250.50")
+                Text("\(Decimal(transactionTotal).formatted(.currency(code: "USD")))")
             }
             .frame(maxWidth: .infinity)
             .padding()
@@ -69,15 +69,25 @@ struct LandingPage: View {
     @ViewBuilder
     func TransactionView()-> some View {
         VStack(alignment:.leading,spacing: 10){
-            ForEach(0 ..< 10){ _ in
+            ForEach(sampleTransactions){ transaction in
                 VStack {
                     HStack {
+                        transaction.transactionType.leadingIcon
+                            .padding(
+                                .horizontal,8
+                            )
                         VStack(alignment:.leading){
-                            Text("Test Account")
-                            Text("Card : 8:00 PM")
+                            Text(transaction.transactionTitle)
+                                .font(.title3)
+                            Text("\(transaction.transactionType.rawValue) ")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
                         }
                         Spacer()
-                        Text("$125.00")
+                        VStack(alignment:.trailing) {
+                            Text("\(Decimal(transaction.amount).formatted(.currency(code: "USD")))")
+                            Text("\(transaction.timeStamp.format("HH:mm a"))")
+                        }
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 80)
@@ -182,23 +192,8 @@ struct Triangle: Shape {
 
 
 #Preview {
-    LandingPage()
+    ContentView()
 }
 
 
-// use this same style as the image
-//                        .background(content:{
-//                            if isSameDate(day.date, currentDate){
-//                                Circle()
-//                                    .fill(.blue)
-//                                    .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
-//                            }
-//                            if day.date.isToday {
-//                                Circle()
-//                                    .fill(.cyan)
-//                                    .frame(width: 5,height: 5)
-//                                    .vSPacing(.bottom)
-//                                    .offset(y: 12)
-//                            }
-//
-//                        })
+
