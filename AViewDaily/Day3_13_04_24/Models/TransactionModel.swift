@@ -20,12 +20,13 @@ struct TransactionModel : Identifiable, Equatable {
     let destinationAccount: String
 }
 
-enum TransactionType : String{
+enum TransactionType : String, CaseIterable{
     case card = "Cash"
     case bill = "Bill Payment"
     case transfer = "Funds Transfer"
     case cashDeposit = "Cash Deposit"
     case qr = "QR"
+    case link = "Payment Link"
     
     @ViewBuilder
     var leadingIcon: some View {
@@ -38,6 +39,8 @@ enum TransactionType : String{
             Image(systemName: "arrow.left.arrow.right")
         case .cashDeposit:
             Image(systemName: "dollarsign.arrow.circlepath")
+        case .link:
+            Image(systemName: "link")
         case .qr:
             Image(systemName: "qrcode")
         }
