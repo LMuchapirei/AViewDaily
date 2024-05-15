@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomePageD3: View {
+    @State private var createTransaction: Bool = false
     let total : Double = sampleTransactions.reduce(0.0) { $0 + $1.amount }
     var body: some View {
         VStack {
@@ -44,6 +45,9 @@ struct HomePageD3: View {
             .padding()
             .background(.blue,in:.rect(cornerRadius: 8))
             .padding()
+            .onTapGesture {
+                createTransaction.toggle()
+            }
             
             Divider()
             
@@ -65,6 +69,13 @@ struct HomePageD3: View {
                     TransactionItem(transaction: sampleTransactions[index])
                 }
             }
+        }
+        .sheet(isPresented: $createTransaction){
+            NewTransaction()
+                .presentationDetents([.height(UIScreen.main.bounds.size.height*0.55)])
+                .interactiveDismissDisabled()
+                .presentationCornerRadius(30)
+                .presentationBackground(.white)
         }
     }
     
