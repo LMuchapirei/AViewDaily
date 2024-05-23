@@ -59,7 +59,7 @@ struct LockView<Content: View>: View {
                                     .background(.ultraThinMaterial,in:.rect(cornerRadius: 10))
                                     .contentShape(.rect)
                                     .onTapGesture {
-                                        //                                    unlockView()
+                                                                            unlockView()
                                     }
                                     
                                     if lockType == .both {
@@ -83,11 +83,47 @@ struct LockView<Content: View>: View {
                 .transition(.offset(y:size.height + 100))
             }
         }
+        .onChange(of:isEnabled,initial: true){ oldValue,newValue in
+            if newValue {
+                unlockView()
+            }
+        }
+        .onChange(of:phase){ oldValue,newValue in
+            if newValue != .active && lockWhenAppGoesBackground {
+                isUnlocked = false
+                pin = ""
+            }
+            
+            if newValue == .active && !isUnlocked && isEnabled { // second condition in the AND clause avoid unnecessary face ID popups by cross-verifying
+                unlockView()
+            }
+        }
     }
     
     /// getter to determine if device supports biometrics
     private var isBiometricAvailable : Bool {
         return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+    }
+    
+    private func unlockView() {
+        Task {
+            if isBiometricAvailable && lockType != .number {
+                /// Requesting Biometric Unlock
+                if let result = try? await
+                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,localizedReason: "Unlock the View"),result {
+                    print("Unlocked")
+                    withAnimation(.snappy,completionCriteria: .logicallyComplete){
+                        isUnlocked = true
+                    } completion: {
+                        pin = ""
+                    }
+                }
+            }
+            
+            /// No Bio Metric Permission || Lock Type Must be Set as Keypad
+            /// Updating Biometric Status
+            noBiometricAccess = !isBiometricAvailable
+        }
     }
     
     @ViewBuilder
@@ -192,7 +228,23 @@ struct LockView<Content: View>: View {
                     }.tint(.white)
                 }).frame(maxHeight: .infinity,alignment: .center)
             }
-        }
+            .onChange(of:pin){ oldValue, newValue in
+                if newValue.count == 4 {
+                    if lockPin == pin {
+                        withAnimation(.snappy,completionCriteria:.logicallyComplete){
+                            isUnlocked = true
+                        } completion: {
+                            pin = ""
+                            noBiometricAccess = !isBiometricAvailable
+                        }
+                    } else {
+                        pin = ""
+                        animateField.toggle()
+                    }
+                }
+            }
+        }.padding()
+            .environment(\.colorScheme,.dark)
     }
 }
 enum LockType: String  {
