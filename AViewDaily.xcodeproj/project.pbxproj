@@ -11,6 +11,7 @@
 		8721E9462BF4ADD400556F8A /* HomePageD3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9452BF4ADD400556F8A /* HomePageD3.swift */; };
 		8721E9522BFF18D900556F8A /* NewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9512BFF18D900556F8A /* NewTransaction.swift */; };
 		8721E9552BFF1A6C00556F8A /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9542BFF1A6C00556F8A /* LockView.swift */; };
+		8721E9572BFF2EFB00556F8A /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9562BFF2EFB00556F8A /* Manage.swift */; };
 		873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615012BEBB42D006C7BD3 /* View+Extensions.swift */; };
 		873615092BF21E24006C7BD3 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615082BF21E24006C7BD3 /* TransactionsView.swift */; };
 		8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */; };
@@ -34,6 +35,7 @@
 		8721E9452BF4ADD400556F8A /* HomePageD3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageD3.swift; sourceTree = "<group>"; };
 		8721E9512BFF18D900556F8A /* NewTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransaction.swift; sourceTree = "<group>"; };
 		8721E9542BFF1A6C00556F8A /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
+		8721E9562BFF2EFB00556F8A /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
 		873615012BEBB42D006C7BD3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		873615082BF21E24006C7BD3 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				8721E9532BFF1A5C00556F8A /* Views */,
 				873615082BF21E24006C7BD3 /* TransactionsView.swift */,
 				8721E9452BF4ADD400556F8A /* HomePageD3.swift */,
+				8721E9562BFF2EFB00556F8A /* Manage.swift */,
 				8721E9512BFF18D900556F8A /* NewTransaction.swift */,
 			);
 			path = Screens;
@@ -277,6 +280,7 @@
 				876559E92BEA168F006A8E20 /* Home.swift in Sources */,
 				8721E9462BF4ADD400556F8A /* HomePageD3.swift in Sources */,
 				876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */,
+				8721E9572BFF2EFB00556F8A /* Manage.swift in Sources */,
 				873615092BF21E24006C7BD3 /* TransactionsView.swift in Sources */,
 				8736150E2BF22232006C7BD3 /* View+ExtensionsD2.swift in Sources */,
 				876559EB2BEA1AC5006A8E20 /* UICoordinator.swift in Sources */,

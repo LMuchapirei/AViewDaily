@@ -35,7 +35,7 @@ struct ContentView: View {
                 .tabItem {
                     Tab.reports.tabContent
                 }
-            Text(Tab.manage.rawValue)
+            Manage()
                 .tag(Tab.manage)
                 .tabItem {
                     Tab.manage.tabContent
