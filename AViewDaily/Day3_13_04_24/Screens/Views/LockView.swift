@@ -27,10 +27,34 @@ struct LockView<Content: View>: View {
     let context = LAContext()
     @Environment(\.scenePhase) private var phase
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader {
+            let size = $0.size
+            content
+                .frame(width: size.width,height: size.height)
+            
+        }
     }
 }
+enum LockType: String  {
+    case biometric = "Bio Metric Auth"
+    case number = "Custom Number Lock"
+    case both = "First preference will be biometric, and if it's not available, it will go for number lock"
 
+
+}
+
+
+struct TempView: View {
+    var body: some View {
+        LockView(lockType: .both, lockPin: "0408", isEnabled: true) {
+            VStack(spacing:15){
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                Text("Hello World")
+            }
+        }
+    }
+}
 #Preview {
-    LockView()
+    TempView()
 }
