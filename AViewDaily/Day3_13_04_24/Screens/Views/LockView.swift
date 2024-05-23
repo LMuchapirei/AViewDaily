@@ -32,6 +32,52 @@ struct LockView<Content: View>: View {
             content
                 .frame(width: size.width,height: size.height)
             
+            if isEnabled && !isUnlocked {
+                ZStack {
+                    Rectangle()
+                        .fill(.black.opacity(0.8))
+                        .ignoresSafeArea()
+                    
+                    if (lockType == .both && !noBiometricAccess) || lockType == .biometric {
+                        Group {
+                            if noBiometricAccess {
+                                Text("Enable biometric authentication in Settings to unlock the view.")
+                                    .font(.callout)
+                                    .multilineTextAlignment(.center)
+                                    .padding(50)
+                            } else {
+                                VStack(spacing: 12){
+                                    VStack(spacing:6){
+                                        Image(systemName: "lock")
+                                            .font(.largeTitle)
+                                            .foregroundStyle(.white)
+                                        Text("Tap to Unlock")
+                                            .font(.caption2)
+                                            .foregroundStyle(.white)
+                                    }
+                                    .frame(width:100,height: 100)
+                                    .background(.ultraThinMaterial,in:.rect(cornerRadius: 10))
+                                    .contentShape(.rect)
+                                    .onTapGesture {
+                                        //                                    unlockView()
+                                    }
+                                    
+                                    if lockType == .both {
+                                        Text("Enter Pin")
+                                            .frame(width: 100,height: 40)
+                                            .background(.ultraThinMaterial,in: .rect(cornerRadius: 10))
+                                            .contentShape(.rect)
+                                            .foregroundStyle(.white)
+                                            .onTapGesture {
+                                                noBiometricAccess = true
+                                            }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
