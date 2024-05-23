@@ -75,9 +75,82 @@ struct LockView<Content: View>: View {
                                 }
                             }
                         }
+                    } else {
+                        NumberPadPinView()
                     }
                 }
+                .environment(\.colorScheme,.dark)
+                .transition(.offset(y:size.height + 100))
             }
+        }
+    }
+    
+    /// getter to determine if device supports biometrics
+    private var isBiometricAvailable : Bool {
+        return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+    }
+    
+    @ViewBuilder
+    func NumberPadPinView () -> some View {
+        VStack(spacing:15){
+            Text("Enter Pin")
+                .font(.title.bold())
+                .frame(maxWidth: .infinity)
+                .overlay (alignment: .leading) {
+                    if lockType == .both && isBiometricAvailable {
+                        Button(action: {
+                            pin = ""
+                            noBiometricAccess = false
+                        }) {
+                            Image(systemName: "arrow.left")
+                                .font(.title3)
+                                .contentShape(.rect)
+                        }
+                        .tint(.white)
+                        .padding(.leading)
+                    }
+                }
+            
+            // Adding Wiggling Animation for Wrong pin the keyframe animator
+            
+            HStack(spacing:10){
+                ForEach(0..<4,id:\.self){ index in
+                    RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 50,height: 55)
+                        .overlay {
+                            if pin.count > index {
+                                let index = pin.index(pin.startIndex,offsetBy: index)
+                                let string = String(pin[index])
+                                
+                                Text(string)
+                                    .font(.title.bold())
+                                    .foregroundStyle(.black)
+                            }
+                        }
+                    
+                }
+            }
+            .keyframeAnimator(initialValue: CGFloat.zero,trigger:animateField,
+                              content:{ content,value in
+                content.offset(x:value)
+            },keyframes: { _ in
+                    KeyframeTrack {
+                        CubicKeyframe(30,duration: 0.07)
+                        CubicKeyframe(-30,duration: 0.07)
+                        CubicKeyframe(20,duration: 0.07)
+                        CubicKeyframe(-20,duration: 0.07)
+                        CubicKeyframe(0,duration: 0.07)
+                    }
+                }
+          )
+            .padding(.top,15)
+            .overlay(alignment:.bottomTrailing){
+                Button("Forgot Pin?",action: forgotPin)
+                    .font(.caption)
+                    .foregroundStyle(.white)
+                    .offset(y:40)
+            }
+            .frame(maxHeight: .infinity)
         }
     }
 }
