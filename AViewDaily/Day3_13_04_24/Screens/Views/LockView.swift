@@ -176,8 +176,21 @@ struct LockView<Content: View>: View {
                             .font(.title)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical,20)
-                    }
-                })
+                            .contentShape(.rect)
+                    }.tint(.white)
+                    
+                    Button {
+                        if pin.count < 4 {
+                            pin.append("0")
+                        }
+                    } label: {
+                        Text("0")
+                            .font(.title)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical,20)
+                            .contentShape(.rect)
+                    }.tint(.white)
+                }).frame(maxHeight: .infinity,alignment: .center)
             }
         }
     }
