@@ -151,6 +151,34 @@ struct LockView<Content: View>: View {
                     .offset(y:40)
             }
             .frame(maxHeight: .infinity)
+            
+            GeometryReader { _ in
+                LazyVGrid(columns: Array(repeating:GridItem(),count:3), content: {
+                    ForEach(1...9,id:\.self) { number in
+                        Button {
+                            if pin.count < 4 {
+                                pin.append("\(number)")
+                            }
+                        } label: {
+                            Text("\(number)")
+                                .font(.title)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical,20)
+                                .contentShape(.rect)
+                        }.tint(.white)
+                    }
+                    Button {
+                        if !pin.isEmpty {
+                            pin.removeLast()
+                        }
+                    } label: {
+                        Image(systemName: "delete.backward")
+                            .font(.title)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical,20)
+                    }
+                })
+            }
         }
     }
 }
