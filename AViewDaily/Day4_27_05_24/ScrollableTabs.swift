@@ -13,6 +13,11 @@ struct ScrollableTabs: View {
     var body: some View {
         VStack(spacing:15) {
             TabBarHeader(.gray)
+                .background(.ultraThinMaterial)
+                .clipShape(.capsule)
+                .shadow(color:.black.opacity(0.2),radius: 5,x:5,y:5)
+                .shadow(color:.black.opacity(0.05),radius: 5,x:-5,y:-5)
+                .padding([.horizontal,.top],15)
             TabView(selection:$activeTab){
                 DummyTab.home.color
                     .tag(DummyTab.home)
@@ -51,6 +56,12 @@ struct ScrollableTabs: View {
                     .fontWeight(weight)
                     .padding(.vertical,10)
                     .frame(maxWidth:.infinity)
+                    .contentShape(.rect)
+                    .onTapGesture {
+                        withAnimation(.snappy(duration:0.3,extraBounce: 0)) {
+                            activeTab = tab
+                        }
+                    }
             }
         }
     }
