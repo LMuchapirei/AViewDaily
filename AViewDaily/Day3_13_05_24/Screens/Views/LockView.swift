@@ -35,7 +35,7 @@ struct LockView<Content: View>: View {
             if isEnabled && !isUnlocked {
                 ZStack {
                     Rectangle()
-                        .fill(.black.opacity(0.8))
+                        .fill(.black.opacity(0.9))
                         .ignoresSafeArea()
                     
                     if (lockType == .both && !noBiometricAccess) || lockType == .biometric {

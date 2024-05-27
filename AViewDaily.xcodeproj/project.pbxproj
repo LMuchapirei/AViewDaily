@@ -12,6 +12,8 @@
 		8721E9522BFF18D900556F8A /* NewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9512BFF18D900556F8A /* NewTransaction.swift */; };
 		8721E9552BFF1A6C00556F8A /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9542BFF1A6C00556F8A /* LockView.swift */; };
 		8721E9572BFF2EFB00556F8A /* Manage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E9562BFF2EFB00556F8A /* Manage.swift */; };
+		8721E95C2C04B68100556F8A /* ScrollableTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E95B2C04B68100556F8A /* ScrollableTabs.swift */; };
+		8721E95F2C04B6CA00556F8A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721E95E2C04B6CA00556F8A /* Tab.swift */; };
 		873615022BEBB42D006C7BD3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615012BEBB42D006C7BD3 /* View+Extensions.swift */; };
 		873615092BF21E24006C7BD3 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615082BF21E24006C7BD3 /* TransactionsView.swift */; };
 		8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */; };
@@ -36,6 +38,8 @@
 		8721E9512BFF18D900556F8A /* NewTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransaction.swift; sourceTree = "<group>"; };
 		8721E9542BFF1A6C00556F8A /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		8721E9562BFF2EFB00556F8A /* Manage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manage.swift; sourceTree = "<group>"; };
+		8721E95B2C04B68100556F8A /* ScrollableTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableTabs.swift; sourceTree = "<group>"; };
+		8721E95E2C04B6CA00556F8A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		873615012BEBB42D006C7BD3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		873615082BF21E24006C7BD3 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -86,6 +90,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		8721E95A2C04B64E00556F8A /* Day4_27_05_24 */ = {
+			isa = PBXGroup;
+			children = (
+				8721E95B2C04B68100556F8A /* ScrollableTabs.swift */,
+				8721E95D2C04B6A600556F8A /* D4_Model */,
+			);
+			path = Day4_27_05_24;
+			sourceTree = "<group>";
+		};
+		8721E95D2C04B6A600556F8A /* D4_Model */ = {
+			isa = PBXGroup;
+			children = (
+				8721E95E2C04B6CA00556F8A /* Tab.swift */,
+			);
+			path = D4_Model;
+			sourceTree = "<group>";
+		};
 		873615002BEBB414006C7BD3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,14 +115,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		873615072BF21DB0006C7BD3 /* Day3_13_04_24 */ = {
+		873615072BF21DB0006C7BD3 /* Day3_13_05_24 */ = {
 			isa = PBXGroup;
 			children = (
 				8736150F2BF23052006C7BD3 /* Models */,
 				8736150A2BF21F31006C7BD3 /* Helpers */,
 				8721E9442BF4ADB500556F8A /* Screens */,
 			);
-			path = Day3_13_04_24;
+			path = Day3_13_05_24;
 			sourceTree = "<group>";
 		};
 		8736150A2BF21F31006C7BD3 /* Helpers */ = {
@@ -141,7 +162,8 @@
 		876559CA2BE4F326006A8E20 /* AViewDaily */ = {
 			isa = PBXGroup;
 			children = (
-				873615072BF21DB0006C7BD3 /* Day3_13_04_24 */,
+				8721E95A2C04B64E00556F8A /* Day4_27_05_24 */,
+				873615072BF21DB0006C7BD3 /* Day3_13_05_24 */,
 				876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */,
 				876559CD2BE4F326006A8E20 /* ContentView.swift */,
 				876559DE2BE8BC6E006A8E20 /* Day2_06_04_24 */,
@@ -270,12 +292,14 @@
 			files = (
 				8721E9432BF49C4B00556F8A /* TransactionModel.swift in Sources */,
 				876559EF2BEA2B51006A8E20 /* ImageView.swift in Sources */,
+				8721E95F2C04B6CA00556F8A /* Tab.swift in Sources */,
 				876559E62BEA12BF006A8E20 /* Item.swift in Sources */,
 				876559ED2BEA245E006A8E20 /* Detail.swift in Sources */,
 				8721E9522BFF18D900556F8A /* NewTransaction.swift in Sources */,
 				8721E9552BFF1A6C00556F8A /* LockView.swift in Sources */,
 				876559F12BEA2EC5006A8E20 /* RandomContent.swift in Sources */,
 				876559DB2BE4F357006A8E20 /* GroupBoxDemo.swift in Sources */,
+				8721E95C2C04B68100556F8A /* ScrollableTabs.swift in Sources */,
 				8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */,
 				876559E92BEA168F006A8E20 /* Home.swift in Sources */,
 				8721E9462BF4ADD400556F8A /* HomePageD3.swift in Sources */,
@@ -423,6 +447,7 @@
 				DEVELOPMENT_TEAM = 583MU3G3UH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -452,6 +477,7 @@
 				DEVELOPMENT_TEAM = 583MU3G3UH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

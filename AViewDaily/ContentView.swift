@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     /// Active Tab
     @State private var activeTab: Tab = .home
+    /// App Lock Properties
+    @AppStorage("isAppLockEnabled") private var isAppLockEnabled: Bool = false
+    @AppStorage("lockWhenAppGoesBackground") private var lockWhenAppGoesBackground: Bool = false
+    
+    
     var body: some View {
         /// Preview for day 2 build
         //        NavigationStack {
@@ -19,27 +24,31 @@ struct ContentView: View {
         
         /// Preview for  day 3 build
         //        LandingPage()
-        TabView(selection:$activeTab) {
-            HomePageD3()
-                .tag(Tab.home)
-                .tabItem {
-                    Tab.home.tabContent
-                }
-            TransactionsView()
-                .tag(Tab.transactions)
-                .tabItem {
-                    Tab.transactions.tabContent
-                }
-            Text(Tab.reports.rawValue)
-                .tag(Tab.reports)
-                .tabItem {
-                    Tab.reports.tabContent
-                }
-            Manage()
-                .tag(Tab.manage)
-                .tabItem {
-                    Tab.manage.tabContent
-                }
+        
+        
+        LockView(lockType: .both, lockPin: "9022", isEnabled: isAppLockEnabled) {
+            TabView(selection:$activeTab) {
+                HomePageD3()
+                    .tag(Tab.home)
+                    .tabItem {
+                        Tab.home.tabContent
+                    }
+                TransactionsView()
+                    .tag(Tab.transactions)
+                    .tabItem {
+                        Tab.transactions.tabContent
+                    }
+                Text(Tab.reports.rawValue)
+                    .tag(Tab.reports)
+                    .tabItem {
+                        Tab.reports.tabContent
+                    }
+                Manage()
+                    .tag(Tab.manage)
+                    .tabItem {
+                        Tab.manage.tabContent
+                    }
+            }
         }
     }
 }
