@@ -13,6 +13,25 @@ struct ScrollableTabs: View {
     var body: some View {
         VStack(spacing:15) {
             TabBarHeader(.gray)
+                .overlay {
+                    if let collectionViewBounds = offsetObserver.collectionView?.bounds {
+                        GeometryReader {
+                            let width = $0.size.width
+                            let tabCount = CGFloat(DummyTab.allCases.count)
+                            let capsuleWidth = width / tabCount
+                            let progress = offsetObserver.offset / collectionViewBounds.width
+                            
+                            Capsule()
+                                .frame(width: capsuleWidth)
+                                .offset(x:progress * capsuleWidth)
+                            
+                            TabBarHeader(.white,.semibold)
+                                .mask(alignment: .leading) {
+                                   
+                                }
+                        }
+                    }
+                }
                 .background(.ultraThinMaterial)
                 .clipShape(.capsule)
                 .shadow(color:.black.opacity(0.2),radius: 5,x:5,y:5)
@@ -54,6 +73,7 @@ struct ScrollableTabs: View {
                 Text(tab.rawValue)
                     .font(.callout)
                     .fontWeight(weight)
+                    .foregroundStyle(tint)
                     .padding(.vertical,10)
                     .frame(maxWidth:.infinity)
                     .contentShape(.rect)
