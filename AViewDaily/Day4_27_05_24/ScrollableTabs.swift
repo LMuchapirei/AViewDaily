@@ -12,6 +12,7 @@ struct ScrollableTabs: View {
     var offsetObserver = PageOffsetObserver()
     var body: some View {
         VStack(spacing:15) {
+            TabBarHeader(.gray)
             TabView(selection:$activeTab){
                 DummyTab.home.color
                     .tag(DummyTab.home)
@@ -35,8 +36,21 @@ struct ScrollableTabs: View {
                     .tag(DummyTab.settings)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .overlay {
-                Text("\(offsetObserver.offset)")
+//            .overlay {
+//                Text("\(offsetObserver.offset)")
+//            }
+        }
+    }
+    
+    @ViewBuilder
+    func TabBarHeader(_ tint: Color,_ weight: Font.Weight = .regular) -> some View {
+        HStack(spacing:0){
+            ForEach(DummyTab.allCases,id: \.rawValue){ tab in
+                Text(tab.rawValue)
+                    .font(.callout)
+                    .fontWeight(weight)
+                    .padding(.vertical,10)
+                    .frame(maxWidth:.infinity)
             }
         }
     }
