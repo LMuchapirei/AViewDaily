@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ScrollableTabs: View {
     @State private var activeTab: DummyTab = .home
-    
+    var offsetObserver = PageOffsetObserver()
     var body: some View {
         VStack(spacing:15) {
             TabView(selection:$activeTab){
                 DummyTab.home.color
                     .tag(DummyTab.home)
                     .background {
-                        FindCollectionView()
+                        if !offsetObserver.isObserving {
+                            FindCollectionView {
+                                offsetObserver.collectionView = $0
+                                offsetObserver.observe()
+                            }
+
+                        }
                     }
                 
                 DummyTab.charts.color
@@ -29,6 +35,9 @@ struct ScrollableTabs: View {
                     .tag(DummyTab.settings)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .overlay {
+                Text("\(offsetObserver.offset)")
+            }
         }
     }
 }
@@ -51,23 +60,37 @@ class PageOffsetObserver: NSObject {
     var offset: CGFloat = 0
     private (set) var isObserving: Bool = false
     
+    deinit {
+        remove()
+    }
     func observe(){
-        
+        guard !isObserving else { return }
+        collectionView?.addObserver(self, forKeyPath: "contentOffset", context: nil)
+        isObserving = true
     }
     
     func remove(){
-        
+        isObserving = false
+        collectionView?.removeObserver(self, forKeyPath: "contentOffset")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard keyPath == "contentOffset" else { return }
+        if let contextOffset = (object as? UICollectionView)?.contentOffset {
+            offset = contextOffset.x
+        }
     }
 }
 
 struct FindCollectionView: UIViewRepresentable {
+    var result: (UICollectionView) -> ()
     func makeUIView(context: Context) -> UIView {
         let view = UIView()
         view.backgroundColor = .clear
         
         DispatchQueue.main.asyncAfter(deadline: .now()){
             if let collectionView = view.collectionSuperView {
-                print(collectionView)
+                result(collectionView)
             }
         }
         return view
