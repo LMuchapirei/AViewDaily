@@ -26,30 +26,32 @@ struct ContentView: View {
         //        LandingPage()
         
         
-        LockView(lockType: .both, lockPin: "9022", isEnabled: isAppLockEnabled) {
-            TabView(selection:$activeTab) {
-                HomePageD3()
-                    .tag(Tab.home)
-                    .tabItem {
-                        Tab.home.tabContent
-                    }
-                TransactionsView()
-                    .tag(Tab.transactions)
-                    .tabItem {
-                        Tab.transactions.tabContent
-                    }
-                Text(Tab.reports.rawValue)
-                    .tag(Tab.reports)
-                    .tabItem {
-                        Tab.reports.tabContent
-                    }
-                Manage()
-                    .tag(Tab.manage)
-                    .tabItem {
-                        Tab.manage.tabContent
-                    }
-            }
-        }
+//        LockView(lockType: .both, lockPin: "9022", isEnabled: isAppLockEnabled) {
+//            TabView(selection:$activeTab) {
+//                HomePageD3()
+//                    .tag(Tab.home)
+//                    .tabItem {
+//                        Tab.home.tabContent
+//                    }
+//                TransactionsView()
+//                    .tag(Tab.transactions)
+//                    .tabItem {
+//                        Tab.transactions.tabContent
+//                    }
+//                Text(Tab.reports.rawValue)
+//                    .tag(Tab.reports)
+//                    .tabItem {
+//                        Tab.reports.tabContent
+//                    }
+//                Manage()
+//                    .tag(Tab.manage)
+//                    .tabItem {
+//                        Tab.manage.tabContent
+//                    }
+//            }
+//        }
+        
+        NiceBottomSheet()
     }
 }
 

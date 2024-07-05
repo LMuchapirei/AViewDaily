@@ -19,6 +19,7 @@
 		8736150C2BF21F49006C7BD3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */; };
 		8736150E2BF22232006C7BD3 /* View+ExtensionsD2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736150D2BF22232006C7BD3 /* View+ExtensionsD2.swift */; };
 		873615112BF23062006C7BD3 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873615102BF23062006C7BD3 /* Tab.swift */; };
+		874882222C36CE62003A3163 /* NiceBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874882212C36CE62003A3163 /* NiceBottomSheet.swift */; };
 		876559CC2BE4F326006A8E20 /* AViewDailyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */; };
 		876559CE2BE4F326006A8E20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876559CD2BE4F326006A8E20 /* ContentView.swift */; };
 		876559D02BE4F328006A8E20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876559CF2BE4F328006A8E20 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		8736150B2BF21F49006C7BD3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		8736150D2BF22232006C7BD3 /* View+ExtensionsD2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ExtensionsD2.swift"; sourceTree = "<group>"; };
 		873615102BF23062006C7BD3 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		874882212C36CE62003A3163 /* NiceBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceBottomSheet.swift; sourceTree = "<group>"; };
 		876559C82BE4F326006A8E20 /* AViewDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AViewDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewDailyApp.swift; sourceTree = "<group>"; };
 		876559CD2BE4F326006A8E20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		874882202C36CE41003A3163 /* Day5_4_07_24 */ = {
+			isa = PBXGroup;
+			children = (
+				874882212C36CE62003A3163 /* NiceBottomSheet.swift */,
+			);
+			path = Day5_4_07_24;
+			sourceTree = "<group>";
+		};
 		876559BF2BE4F326006A8E20 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 		876559CA2BE4F326006A8E20 /* AViewDaily */ = {
 			isa = PBXGroup;
 			children = (
+				874882202C36CE41003A3163 /* Day5_4_07_24 */,
 				8721E95A2C04B64E00556F8A /* Day4_27_05_24 */,
 				873615072BF21DB0006C7BD3 /* Day3_13_05_24 */,
 				876559CB2BE4F326006A8E20 /* AViewDailyApp.swift */,
@@ -295,6 +306,7 @@
 				8721E95F2C04B6CA00556F8A /* DummyTab.swift in Sources */,
 				876559E62BEA12BF006A8E20 /* Item.swift in Sources */,
 				876559ED2BEA245E006A8E20 /* Detail.swift in Sources */,
+				874882222C36CE62003A3163 /* NiceBottomSheet.swift in Sources */,
 				8721E9522BFF18D900556F8A /* NewTransaction.swift in Sources */,
 				8721E9552BFF1A6C00556F8A /* LockView.swift in Sources */,
 				876559F12BEA2EC5006A8E20 /* RandomContent.swift in Sources */,
